@@ -465,17 +465,17 @@ if game.PlaceId == 93055992396216 then
     end,
     })
 
-    local Players = game:GetService("Players")
-    local player = Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local rootPart = character:WaitForChild("HumanoidRootPart")
-    local targetplrCharacter
-    local targetplrRootPart
+    local playersTp = game:GetService("Players")
+    local playerTp = playersTp.LocalPlayer
+    local characterTp = playerTp.Character or playerTp.CharacterAdded:Wait()
+    local rootPartTp = characterTp:WaitForChild("HumanoidRootPart")
+    local targetplrCharacterTp
+    local targetplrRootPartTp
 
     local function getPlayerNames()
         local names = {}
-        for _, player in ipairs(Players:GetPlayers()) do
-            table.insert(names, player.Name)
+        for _, player in ipairs(playersTp:GetPlayers()) do
+            table.insert(names, playerTp.Name)
         end
         if #names == 0 then
             table.insert(names, "No players in server.")
@@ -487,11 +487,11 @@ if game.PlaceId == 93055992396216 then
 
         local selectedName = selectedOptionsTable[1]
 
-        local targetPlayer = Players:FindFirstChild(selectedName)
+        local targetPlayer = playersTp:FindFirstChild(selectedName)
         if targetPlayer then
-            targetplrCharacter = targetPlayer.Character or targetPlayer.CharacterAdded:Wait()
-            targetplrRootPart = targetplrCharacter:WaitForChild("HumanoidRootPart")
-            rootPart.CFrame = targetplrRootPart.CFrame
+            targetplrCharacterTp = targetPlayer.Character or targetPlayer.CharacterAdded:Wait()
+            targetplrRootPartTp = targetplrCharacterTp:WaitForChild("HumanoidRootPart")
+            rootPart.CFrame = targetplrRootPartTp.CFrame
         else
             warn("Could not find the player object called:", selectedName)
         end
@@ -516,15 +516,57 @@ if game.PlaceId == 93055992396216 then
         end,
         })
 
-        Players.PlayerAdded:Connect(function()
+        playersTp.PlayerAdded:Connect(function()
             Dropdown:Refresh(getPlayerNames())
         end)
 
-        Players.PlayerRemoving:Connect(function()
+        playersTp.PlayerRemoving:Connect(function()
             Dropdown:Refresh(getPlayerNames())
         end)
 
     else
         warn("No players found on startup. Dropdown UI not fully initialized.")
     end
+
+    local miscTab = Window:CreateTab("Misc", 103214087623766)
+
+    local Button = miscTab:CreateButton({
+    Name = "Load Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
+    Name = "Load Dex Explorer",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
+    Name = "Reset Character",
+    Callback = function()
+        local characterReset = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+        local humanoidReset = characterReset:WaitForChild("Humanoid")
+        humanoidReset.Health = 0
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
+    Name = "Rejoin",
+    Callback = function()
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+        ts:TeleportToPlaceInstance(game.PlaceId, game.JobId, p)
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
+    Name = "Server Hop",
+    Callback = function()
+        local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
+        module:Teleport(game.PlaceId)
+    end,
+    })
 end
