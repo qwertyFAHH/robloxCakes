@@ -1,0 +1,530 @@
+if game.PlaceId == 93055992396216 then
+    local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+    local Window = Rayfield:CreateWindow({
+    Name = "Impossible Wallhop Obby Script",
+    Icon = 95515544491576,
+    LoadingTitle = "enjoy teh swript :3",
+    LoadingSubtitle = "by @chickennuggets0389",
+    ShowText = "SCRIPT",
+    Theme = "AmberGlow",
+
+    ToggleUIKeybind = "K",
+
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false,
+
+    ConfigurationSaving = {
+        Enabled = false,
+        FolderName = nil,
+        FileName = "ImpossibleWallhopObby_c00lkiddRayfield"
+    },
+
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = true
+    },
+
+    KeySystem = false,
+    KeySettings = {
+        Title = "Untitled",
+        Subtitle = "Key System",
+        Note = "No method of obtaining the key is provided",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+    })
+
+    Rayfield:Notify({
+    Title = "Script",
+    Content = "Please note that when a player joins or leaves or when you reset, the \"Teleport to player\" dropdown will appear nothing so close and re-open the dropdown and it will be normal!",
+    Duration = 13.67,
+    Image = 138311264115439,
+    })
+
+    local mainTab = Window:CreateTab("Main", 109890929264204)
+
+    local Button = mainTab:CreateButton({
+    Name = "Reach to end (click once)",
+    Callback = function()
+        for _, child in ipairs(Workspace:GetChildren()) do
+            if string.match(child.Name, "^spawnLvl") then
+                child:Destroy()
+            end
+        end
+        local workspace = game.Workspace
+        local createdPartsList = {}
+
+        local uniquePositions = {
+            Vector3.new(-322.336, -237.549, -722.336), --1
+            Vector3.new(-322.336, -238.799, -798.336), --2
+            Vector3.new(-322.336, -219.799, -833.336), --3
+            Vector3.new(-319.163, -206.799, -902.352), --4
+            Vector3.new(-315.163, -194.799, -968.352), --5
+            Vector3.new(-315.163, -182.799, -1022.352), --6
+            Vector3.new(-269.163, -170.799, -1058.352), --7
+            Vector3.new(-216.163, -170.799, -1058.352), --8
+            Vector3.new(-167.164, -147.300, -1058.353), --9
+            Vector3.new(-90.164, -134.300, -1058.353), --10
+            Vector3.new(-90.164, -134.300, -994.353), --11
+            Vector3.new(-90.164, -118.300, -942.353), --12
+            Vector3.new(-90.164, -118.300, -893.353), --13
+            Vector3.new(-90.164, -104.300, -835.353), --14
+            Vector3.new(-47.164, -97.300, -808.353), --15
+            Vector3.new(1.836, -84.300, -808.353), --16
+            Vector3.new(50.836, -68.300, -784.852), --17
+            Vector3.new(124.836, -54.300, -784.853), --18
+            Vector3.new(172.836, -54.300, -784.853), --19
+            Vector3.new(241.836, -35.300, -782.853), --20
+            Vector3.new(333.837, -34.050, -782.853), --21
+            Vector3.new(423.837, -16.300, -782.854), --22
+            Vector3.new(503.837, 0.700, -820.854), --23
+            Vector3.new(561.837, 14.700, -820.854), --24
+            Vector3.new(607.837, 41.700, -820.855), --25
+            Vector3.new(674.837, 44.700, -814.856), --26
+            Vector3.new(722.837, 44.700, -814.857), --27
+            Vector3.new(724.838, 59.200, -731.857), --28
+            Vector3.new(724.839, 59.408, -679.857), --29
+            Vector3.new(741.839, 88.408, -615.857), --30
+            Vector3.new(741.838, 88.408, -572.857), --31
+            Vector3.new(741.838, 120.408, -519.857), --32
+            Vector3.new(741.838, 136.408, -455.857), --33
+            Vector3.new(741.838, 136.408, -410.857), --34
+            Vector3.new(792.838, 136.408, -410.857), --35
+            Vector3.new(847.838, 137.408, -410.857), --36
+            Vector3.new(884.838, 137.408, -410.857), --37
+            Vector3.new(922.338, 154.408, -410.857), --38
+            Vector3.new(986.338, 146.408, -391.857), --39
+            Vector3.new(1039.338, 160.408, -391.857), --40
+            Vector3.new(1119.338, 161.658, -391.857), --41
+            Vector3.new(1202.338, 162.408, -392.857), --42
+            Vector3.new(1262.338, 180.408, -392.857), --43
+            Vector3.new(1324.338, 183.408, -395.857), --44
+            Vector3.new(1394.338, 211.408, -395.857), --45
+            Vector3.new(1453.338, 211.408, -395.857), --46
+            Vector3.new(1548.338, 217.408, -396.857), --47
+            Vector3.new(1616.338, 230.408, -396.857), --48
+            Vector3.new(1673.338, 244.408, -396.857), --49
+            Vector3.new(1678.338, 242.408, -471.857), --50
+            Vector3.new(1687.338, 256.408, -531.857), --51
+            Vector3.new(1687.338, 283.408, -570.857), --52
+            Vector3.new(1687.338, 304.408, -623.857), --53
+            Vector3.new(1687.338, 306.408, -700.857), --54
+            Vector3.new(1687.338, 306.408, -749.857), --55
+            Vector3.new(1687.338, 306.408, -786.857), --56
+            Vector3.new(1687.338, 320.408, -856.857), --57
+            Vector3.new(1715.338, 335.408, -877.357), --58
+            Vector3.new(1758.338, 335.408, -877.357), --59
+            Vector3.new(1796.338, 348.908, -877.357), --60
+            Vector3.new(1894.338, 363.158, -877.357), --61
+            Vector3.new(1994.338, 361.908, -877.357), --62
+            Vector3.new(2066.338, 386.908, -861.357), --63
+            Vector3.new(2146.838, 389.408, -861.357), --64
+            Vector3.new(2211.838, 389.408, -861.357), --65
+            Vector3.new(2280.838, 389.408, -861.357), --66
+            Vector3.new(2338.838, 389.408, -861.357), --67
+            Vector3.new(2388.838, 418.408, -831.357), --68
+            Vector3.new(2388.838, 465.408, -787.357), --69
+            Vector3.new(2388.838, 467.408, -720.357), --70
+            Vector3.new(2388.838, 498.408, -666.357), --71
+            Vector3.new(2388.838, 498.408, -590.357), --72
+            Vector3.new(2388.838, 519.408, -545.357), --73
+            Vector3.new(2388.838, 528.408, -495.357), --74
+            Vector3.new(2388.839, 543.908, -437.357), --75
+            Vector3.new(2388.839, 543.908, -345.357), --76
+            Vector3.new(2381.839, 542.908, -290.357), --77
+            Vector3.new(2381.839, 564.908, -257.357), --78
+            Vector3.new(2378.839, 577.908, -197.357), --79
+            Vector3.new(2378.839, 577.908, -157.357), --80
+            Vector3.new(2378.839, 630.158, -61.357), --81
+            Vector3.new(2408.339, 627.908, 22.643), --82
+            Vector3.new(2408.339, 635.908, 78.643), --83
+            Vector3.new(2408.339, 635.908, 133.643), --84
+            Vector3.new(2408.339, 651.908, 190.643), --85
+            Vector3.new(2408.339, 635.908, 251.643), --86
+            Vector3.new(2408.339, 635.908, 288.643), --87
+            Vector3.new(2408.339, 651.908, 365.643), --88
+            Vector3.new(2408.339, 651.908, 404.643), --89
+            Vector3.new(2445.339, 650.908, 436.643), --90
+            Vector3.new(2504.339, 650.908, 436.643), --91
+            Vector3.new(2556.339, 680.908, 441.643), --92
+            Vector3.new(2623.339, 680.908, 441.643), --93
+            Vector3.new(2666.339, 706.908, 441.643), --94
+            Vector3.new(2718.339, 681.908, 441.643), --95
+            Vector3.new(2782.339, 680.908, 441.643), --96
+            Vector3.new(2832.339, 680.908, 441.643), --97
+            Vector3.new(2870.339, 695.908, 441.643), --98
+            Vector3.new(2918.339, 694.908, 446.643), --99
+            Vector3.new(2953.339, 694.908, 481.643), --100
+            Vector3.new(2953.338, 696.158, 536.643), --101
+            Vector3.new(2972.339, 682.908, 625.643), --102
+            Vector3.new(2972.339, 682.908, 692.643), --103
+            Vector3.new(2978.339, 682.908, 750.643), --104
+            Vector3.new(2978.339, 682.908, 812.643), --105
+            Vector3.new(2978.339, 682.908, 870.643), --106
+            Vector3.new(2978.339, 682.908, 926.643), --107
+            Vector3.new(2978.339, 700.908, 980.643), --108
+            Vector3.new(2978.339, 700.908, 1048.643), --109
+            Vector3.new(2978.339, 703.908, 1101.643), --110
+            Vector3.new(2978.339, 703.908, 1160.643), --111
+            Vector3.new(2942.339, 717.408, 1205.643), --112
+            Vector3.new(2882.613, 744.408, 1191.642), --113
+            Vector3.new(2840.613, 744.408, 1191.642), --114
+            Vector3.new(2785.613, 744.408, 1191.642), --115
+            Vector3.new(2725.613, 744.408, 1170.642), --116
+            Vector3.new(2664.613, 759.408, 1170.642), --117
+            Vector3.new(2611.613, 759.408, 1170.642), --118
+            Vector3.new(2565.613, 759.408, 1170.642), --119
+            Vector3.new(2468.613, 759.408, 1170.642), --120
+            Vector3.new(2428.613, 760.658, 1169.642), --121
+            Vector3.new(2344.613, 763.408, 1193.642), --122
+            Vector3.new(2294.613, 767.408, 1216.642), --123
+            Vector3.new(2243.613, 767.408, 1216.642), --124
+            Vector3.new(2192.613, 767.408, 1216.642), --125
+            Vector3.new(2111.613, 767.408, 1216.642), --126
+            Vector3.new(2052.613, 767.408, 1216.642), --127
+            Vector3.new(1978.613, 776.408, 1218.642), --128
+            Vector3.new(1908.613, 799.408, 1223.642), --129
+            Vector3.new(1860.113, 829.408, 1186.142), --130
+            Vector3.new(1816.113, 829.408, 1186.142), --131
+            Vector3.new(1747.113, 833.408, 1193.142), --132
+            Vector3.new(1679.113, 854.408, 1196.142), --133
+            Vector3.new(1612.113, 854.408, 1196.142), --134
+            Vector3.new(1556.113, 854.408, 1196.142), --135
+            Vector3.new(1483.113, 854.408, 1196.142), --136
+            Vector3.new(1429.113, 836.408, 1190.142), --137
+            Vector3.new(1378.113, 836.408, 1190.142), --138
+            Vector3.new(1307.113, 847.408, 1190.142), --139
+            Vector3.new(1242.113, 847.408, 1190.142), --140
+            Vector3.new(1205.113, 848.659, 1190.143), --141
+        }
+
+        for index, positionVector in ipairs(uniquePositions) do
+            local newPart = Instance.new("Part")
+            newPart.Name = "spawnLvl" .. index
+            newPart.Size = Vector3.new(5, 1, 5)
+            newPart.CanCollide = false
+            newPart.Transparency = 1
+            newPart.Anchored = true
+
+            newPart.Position = positionVector
+
+            newPart.Parent = workspace
+            table.insert(createdPartsList, newPart)
+        end
+
+        local Players = game:GetService("Players")
+        local workspace = game.Workspace
+        local Player = Players.LocalPlayer
+
+        local waitDuration = 0.1
+
+        local function startSequentialTeleport()
+            local character = Player.Character or Player.CharacterAdded:Wait()
+            local humanoid = character:WaitForChild("Humanoid")
+            local rootPart = character:WaitForChild("HumanoidRootPart")
+
+            local spawnPoints = {}
+            local currentLevel = (Player.leaderstats.Stage.Value + 1)
+            if currentLevel ~= 142 then
+                Rayfield:Notify({
+                Title = "Script",
+                Content = "If stop at a certain stage, wait for it to finish then click again",
+                Duration = 5.5,
+                Image = 138311264115439,
+                })
+                for i = currentLevel, 141 do
+                    local partName = "spawnLvl" .. i
+                    local part = workspace:WaitForChild(partName, 60)
+
+                    if part then
+                        table.insert(spawnPoints, part)
+                    else
+                        warn("Could not find part: " .. partName .. ". Stopping sequence search.")
+                        break
+                    end
+                end
+
+                for i, pointPart in ipairs(spawnPoints) do
+                    humanoid.WalkSpeed = 0
+                    humanoid.JumpPower = 0
+
+                    rootPart.CFrame = pointPart.CFrame
+
+                    task.wait(waitDuration)
+                end
+            end
+
+            humanoid.WalkSpeed = 16
+            humanoid.JumpPower = 50
+            Rayfield:Notify({
+            Title = "Script",
+            Content = "End reached!",
+            Duration = 2,
+            Image = 138311264115439,
+            })
+        end
+
+        startSequentialTeleport()
+    end,
+    })
+
+    local Button = mainTab:CreateButton({
+    Name = "Skip Stage",
+    Callback = function()
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local partName = "spawnLvl"
+        local plrLevel
+        local targetPart
+        local targetLevelNum
+        for _, child in ipairs(Workspace:GetChildren()) do
+            if string.match(child.Name, "^spawnLvl") then
+                child:Destroy()
+            end
+        end
+        local workspace = game.Workspace
+        local createdPartsList = {}
+
+        local uniquePositions = {
+            Vector3.new(-322.336, -237.549, -722.336), --1
+            Vector3.new(-322.336, -238.799, -798.336), --2
+            Vector3.new(-322.336, -219.799, -833.336), --3
+            Vector3.new(-319.163, -206.799, -902.352), --4
+            Vector3.new(-315.163, -194.799, -968.352), --5
+            Vector3.new(-315.163, -182.799, -1022.352), --6
+            Vector3.new(-269.163, -170.799, -1058.352), --7
+            Vector3.new(-216.163, -170.799, -1058.352), --8
+            Vector3.new(-167.164, -147.300, -1058.353), --9
+            Vector3.new(-90.164, -134.300, -1058.353), --10
+            Vector3.new(-90.164, -134.300, -994.353), --11
+            Vector3.new(-90.164, -118.300, -942.353), --12
+            Vector3.new(-90.164, -118.300, -893.353), --13
+            Vector3.new(-90.164, -104.300, -835.353), --14
+            Vector3.new(-47.164, -97.300, -808.353), --15
+            Vector3.new(1.836, -84.300, -808.353), --16
+            Vector3.new(50.836, -68.300, -784.852), --17
+            Vector3.new(124.836, -54.300, -784.853), --18
+            Vector3.new(172.836, -54.300, -784.853), --19
+            Vector3.new(241.836, -35.300, -782.853), --20
+            Vector3.new(333.837, -34.050, -782.853), --21
+            Vector3.new(423.837, -16.300, -782.854), --22
+            Vector3.new(503.837, 0.700, -820.854), --23
+            Vector3.new(561.837, 14.700, -820.854), --24
+            Vector3.new(607.837, 41.700, -820.855), --25
+            Vector3.new(674.837, 44.700, -814.856), --26
+            Vector3.new(722.837, 44.700, -814.857), --27
+            Vector3.new(724.838, 59.200, -731.857), --28
+            Vector3.new(724.839, 59.408, -679.857), --29
+            Vector3.new(741.839, 88.408, -615.857), --30
+            Vector3.new(741.838, 88.408, -572.857), --31
+            Vector3.new(741.838, 120.408, -519.857), --32
+            Vector3.new(741.838, 136.408, -455.857), --33
+            Vector3.new(741.838, 136.408, -410.857), --34
+            Vector3.new(792.838, 136.408, -410.857), --35
+            Vector3.new(847.838, 137.408, -410.857), --36
+            Vector3.new(884.838, 137.408, -410.857), --37
+            Vector3.new(922.338, 154.408, -410.857), --38
+            Vector3.new(986.338, 146.408, -391.857), --39
+            Vector3.new(1039.338, 160.408, -391.857), --40
+            Vector3.new(1119.338, 161.658, -391.857), --41
+            Vector3.new(1202.338, 162.408, -392.857), --42
+            Vector3.new(1262.338, 180.408, -392.857), --43
+            Vector3.new(1324.338, 183.408, -395.857), --44
+            Vector3.new(1394.338, 211.408, -395.857), --45
+            Vector3.new(1453.338, 211.408, -395.857), --46
+            Vector3.new(1548.338, 217.408, -396.857), --47
+            Vector3.new(1616.338, 230.408, -396.857), --48
+            Vector3.new(1673.338, 244.408, -396.857), --49
+            Vector3.new(1678.338, 242.408, -471.857), --50
+            Vector3.new(1687.338, 256.408, -531.857), --51
+            Vector3.new(1687.338, 283.408, -570.857), --52
+            Vector3.new(1687.338, 304.408, -623.857), --53
+            Vector3.new(1687.338, 306.408, -700.857), --54
+            Vector3.new(1687.338, 306.408, -749.857), --55
+            Vector3.new(1687.338, 306.408, -786.857), --56
+            Vector3.new(1687.338, 320.408, -856.857), --57
+            Vector3.new(1715.338, 335.408, -877.357), --58
+            Vector3.new(1758.338, 335.408, -877.357), --59
+            Vector3.new(1796.338, 348.908, -877.357), --60
+            Vector3.new(1894.338, 363.158, -877.357), --61
+            Vector3.new(1994.338, 361.908, -877.357), --62
+            Vector3.new(2066.338, 386.908, -861.357), --63
+            Vector3.new(2146.838, 389.408, -861.357), --64
+            Vector3.new(2211.838, 389.408, -861.357), --65
+            Vector3.new(2280.838, 389.408, -861.357), --66
+            Vector3.new(2338.838, 389.408, -861.357), --67
+            Vector3.new(2388.838, 418.408, -831.357), --68
+            Vector3.new(2388.838, 465.408, -787.357), --69
+            Vector3.new(2388.838, 467.408, -720.357), --70
+            Vector3.new(2388.838, 498.408, -666.357), --71
+            Vector3.new(2388.838, 498.408, -590.357), --72
+            Vector3.new(2388.838, 519.408, -545.357), --73
+            Vector3.new(2388.838, 528.408, -495.357), --74
+            Vector3.new(2388.839, 543.908, -437.357), --75
+            Vector3.new(2388.839, 543.908, -345.357), --76
+            Vector3.new(2381.839, 542.908, -290.357), --77
+            Vector3.new(2381.839, 564.908, -257.357), --78
+            Vector3.new(2378.839, 577.908, -197.357), --79
+            Vector3.new(2378.839, 577.908, -157.357), --80
+            Vector3.new(2378.839, 630.158, -61.357), --81
+            Vector3.new(2408.339, 627.908, 22.643), --82
+            Vector3.new(2408.339, 635.908, 78.643), --83
+            Vector3.new(2408.339, 635.908, 133.643), --84
+            Vector3.new(2408.339, 651.908, 190.643), --85
+            Vector3.new(2408.339, 635.908, 251.643), --86
+            Vector3.new(2408.339, 635.908, 288.643), --87
+            Vector3.new(2408.339, 651.908, 365.643), --88
+            Vector3.new(2408.339, 651.908, 404.643), --89
+            Vector3.new(2445.339, 650.908, 436.643), --90
+            Vector3.new(2504.339, 650.908, 436.643), --91
+            Vector3.new(2556.339, 680.908, 441.643), --92
+            Vector3.new(2623.339, 680.908, 441.643), --93
+            Vector3.new(2666.339, 706.908, 441.643), --94
+            Vector3.new(2718.339, 681.908, 441.643), --95
+            Vector3.new(2782.339, 680.908, 441.643), --96
+            Vector3.new(2832.339, 680.908, 441.643), --97
+            Vector3.new(2870.339, 695.908, 441.643), --98
+            Vector3.new(2918.339, 694.908, 446.643), --99
+            Vector3.new(2953.339, 694.908, 481.643), --100
+            Vector3.new(2953.338, 696.158, 536.643), --101
+            Vector3.new(2972.339, 682.908, 625.643), --102
+            Vector3.new(2972.339, 682.908, 692.643), --103
+            Vector3.new(2978.339, 682.908, 750.643), --104
+            Vector3.new(2978.339, 682.908, 812.643), --105
+            Vector3.new(2978.339, 682.908, 870.643), --106
+            Vector3.new(2978.339, 682.908, 926.643), --107
+            Vector3.new(2978.339, 700.908, 980.643), --108
+            Vector3.new(2978.339, 700.908, 1048.643), --109
+            Vector3.new(2978.339, 703.908, 1101.643), --110
+            Vector3.new(2978.339, 703.908, 1160.643), --111
+            Vector3.new(2942.339, 717.408, 1205.643), --112
+            Vector3.new(2882.613, 744.408, 1191.642), --113
+            Vector3.new(2840.613, 744.408, 1191.642), --114
+            Vector3.new(2785.613, 744.408, 1191.642), --115
+            Vector3.new(2725.613, 744.408, 1170.642), --116
+            Vector3.new(2664.613, 759.408, 1170.642), --117
+            Vector3.new(2611.613, 759.408, 1170.642), --118
+            Vector3.new(2565.613, 759.408, 1170.642), --119
+            Vector3.new(2468.613, 759.408, 1170.642), --120
+            Vector3.new(2428.613, 760.658, 1169.642), --121
+            Vector3.new(2344.613, 763.408, 1193.642), --122
+            Vector3.new(2294.613, 767.408, 1216.642), --123
+            Vector3.new(2243.613, 767.408, 1216.642), --124
+            Vector3.new(2192.613, 767.408, 1216.642), --125
+            Vector3.new(2111.613, 767.408, 1216.642), --126
+            Vector3.new(2052.613, 767.408, 1216.642), --127
+            Vector3.new(1978.613, 776.408, 1218.642), --128
+            Vector3.new(1908.613, 799.408, 1223.642), --129
+            Vector3.new(1860.113, 829.408, 1186.142), --130
+            Vector3.new(1816.113, 829.408, 1186.142), --131
+            Vector3.new(1747.113, 833.408, 1193.142), --132
+            Vector3.new(1679.113, 854.408, 1196.142), --133
+            Vector3.new(1612.113, 854.408, 1196.142), --134
+            Vector3.new(1556.113, 854.408, 1196.142), --135
+            Vector3.new(1483.113, 854.408, 1196.142), --136
+            Vector3.new(1429.113, 836.408, 1190.142), --137
+            Vector3.new(1378.113, 836.408, 1190.142), --138
+            Vector3.new(1307.113, 847.408, 1190.142), --139
+            Vector3.new(1242.113, 847.408, 1190.142), --140
+            Vector3.new(1205.113, 848.659, 1190.143), --141
+        }
+        for index, positionVector in ipairs(uniquePositions) do
+            local newPart = Instance.new("Part")
+            newPart.Name = "spawnLvl" .. index
+            newPart.Size = Vector3.new(5, 1, 5)
+            newPart.CanCollide = false
+            newPart.Transparency = 1
+            newPart.Anchored = true
+
+            newPart.Position = positionVector
+
+            newPart.Parent = workspace
+            table.insert(createdPartsList, newPart)
+        end
+        plrLevel = (player.leaderstats.Stage.Value + 1)
+        if plrLevel ~= 142 then
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoid = character:WaitForChild("Humanoid")
+            local rootPart = character:WaitForChild("HumanoidRootPart")
+
+            targetPart = partName .. plrLevel
+            targetLevelNum = workspace:WaitForChild(targetPart)
+            rootPart.CFrame = targetLevelNum.CFrame
+        else
+            Rayfield:Notify({
+            Title = "Script",
+            Content = "No more stages to skip!",
+            Duration = 3.5,
+            Image = 138311264115439,
+            })
+        end
+    end,
+    })
+
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local rootPart = character:WaitForChild("HumanoidRootPart")
+    local targetplrCharacter
+    local targetplrRootPart
+
+    local function getPlayerNames()
+        local names = {}
+        for _, player in ipairs(Players:GetPlayers()) do
+            table.insert(names, player.Name)
+        end
+        if #names == 0 then
+            table.insert(names, "No players in server.")
+        end
+        return names
+    end
+
+    local function handleDropdownSelection(selectedOptionsTable)
+
+        local selectedName = selectedOptionsTable[1]
+
+        local targetPlayer = Players:FindFirstChild(selectedName)
+        if targetPlayer then
+            targetplrCharacter = targetPlayer.Character or targetPlayer.CharacterAdded:Wait()
+            targetplrRootPart = targetplrCharacter:WaitForChild("HumanoidRootPart")
+            rootPart.CFrame = targetplrRootPart.CFrame
+        else
+            warn("Could not find the player object called:", selectedName)
+        end
+    end
+
+    local initialPlayerList = getPlayerNames()
+
+    if #initialPlayerList > 0 then
+        local firstPlayerName = initialPlayerList[1]
+
+        print("Creating Rayfield dropdown UI with options:", initialPlayerList)
+
+        local Dropdown = mainTab:CreateDropdown({
+        Name = "Teleport to player",
+        Options = initialPlayerList,
+        CurrentOption = firstPlayerName,
+        MultipleOptions = false,
+        Flag = "Dropdown1",
+
+        Callback = function(ValueTable)
+            handleDropdownSelection(ValueTable)
+        end,
+        })
+
+        Players.PlayerAdded:Connect(function()
+            Dropdown:Refresh(getPlayerNames())
+        end)
+
+        Players.PlayerRemoving:Connect(function()
+            Dropdown:Refresh(getPlayerNames())
+        end)
+
+    else
+        warn("No players found on startup. Dropdown UI not fully initialized.")
+    end
+end
