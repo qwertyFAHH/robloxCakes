@@ -475,7 +475,7 @@ if game.PlaceId == 93055992396216 then
     local function getPlayerNames()
         local names = {}
         for _, player in ipairs(playersTp:GetPlayers()) do
-            table.insert(names, playerTp.Name)
+            table.insert(names, player.Name)
         end
         if #names == 0 then
             table.insert(names, "No players in server.")
@@ -491,7 +491,7 @@ if game.PlaceId == 93055992396216 then
         if targetPlayer then
             targetplrCharacterTp = targetPlayer.Character or targetPlayer.CharacterAdded:Wait()
             targetplrRootPartTp = targetplrCharacterTp:WaitForChild("HumanoidRootPart")
-            rootPart.CFrame = targetplrRootPartTp.CFrame
+            rootPartTp.CFrame = targetplrRootPartTp.CFrame
         else
             warn("Could not find the player object called:", selectedName)
         end
@@ -545,6 +545,25 @@ if game.PlaceId == 93055992396216 then
     })
 
     local Button = miscTab:CreateButton({
+    Name = "FE R6 Emotes",
+    Callback = function()
+        Rayfield:Notify({
+        Title = "Script",
+        Content = "AquaMatrix will appear on the back of the Rayfield script!",
+        Duration = 3.69,
+        Image = 138311264115439,
+        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+        Rayfield:Notify({
+        Title = "Script",
+        Content = "Credits to ExploitFin and don't use Monster Mash too much.",
+        Duration = 5.67,
+        Image = 138311264115439,
+        })
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
     Name = "Reset Character",
     Callback = function()
         local characterReset = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
@@ -567,6 +586,13 @@ if game.PlaceId == 93055992396216 then
     Callback = function()
         local module = loadstring(game:HttpGet("https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua"))()
         module:Teleport(game.PlaceId)
+    end,
+    })
+
+    local Button = miscTab:CreateButton({
+    Name = "Destroy Rayfield",
+    Callback = function()
+        Rayfield:Destroy()
     end,
     })
 end
