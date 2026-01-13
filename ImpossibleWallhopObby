@@ -595,4 +595,17 @@ if game.PlaceId == 93055992396216 then
         Rayfield:Destroy()
     end,
     })
+
+    local Button = miscTab:CreateButton({
+    Name = "Refresh Rayfield (click once)",
+    Callback = function()
+        Rayfield:Notify({
+        Title = "Script",
+        Content = "Refreshing...",
+        Duration = 67,
+        Image = 138311264115439,
+        })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/c00lkiddpostshaxxs/c00lkidd/main/ImpossibleWallhopObby"))()
+    end,
+    })
 end
